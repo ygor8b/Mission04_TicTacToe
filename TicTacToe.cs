@@ -29,7 +29,7 @@ namespace Mission04_TicTacToe
                 (board[0] == 'X' && board[4] == 'X' && board[8] == 'X') ||
                 (board[2] == 'X' && board[4] == 'X' && board[6] == 'X'))
             {
-                message = "Player 1 wins!";
+                message = "Player X wins!";
             }
             else if ((board[0] == 'O' && board[1] == 'O' && board[2] == 'O') ||
                      (board[3] == 'O' && board[4] == 'O' && board[5] == 'O') ||
@@ -40,7 +40,7 @@ namespace Mission04_TicTacToe
                      (board[0] == 'O' && board[4] == 'O' && board[8] == 'O') ||
                      (board[2] == 'O' && board[4] == 'O' && board[6] == 'O'))
             {
-                message = "Player 2 wins!";
+                message = "Player O wins!";
             }
             // if no game winner, check if board is not default (tie)
             else if (board[0] != '1' && board[1] != '2' && board[2] != '3' &&
