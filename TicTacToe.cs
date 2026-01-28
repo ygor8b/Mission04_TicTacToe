@@ -6,7 +6,7 @@ namespace Mission04_TicTacToe
 {
     internal class TicTacToe
     {
-        public void PrintBoard(char[] board)
+        public void PrintBoard(char[] board) // Print the Tic Tac Toe board
         {
             Console.WriteLine($"{board[0]} | {board[1]} | {board[2]}");
             Console.WriteLine("---------");
@@ -15,7 +15,7 @@ namespace Mission04_TicTacToe
             Console.WriteLine($"{board[6]} | {board[7]} | {board[8]}");
         }
 
-        public string IsWinner(char[] board)
+        public string IsWinner(char[] board) // Check for a winner or tie, or continue playing
         {
             string message = "";
 
