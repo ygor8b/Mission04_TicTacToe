@@ -34,25 +34,47 @@ namespace  Mission04_TicTacToe
                     case "1":
                         // Create a game board array to store the players’ choices
                         char[] game_board = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-                        char playerChoice = ' ';
+                        int playerChoice = 0;
                         char playerUp = 'X';
                         string gameStatus = "No winner yet, keep playing!";
                         
-                        ttt.printBoard(game_board);
+                        ttt.PrintBoard(game_board);
 
                         while (gameStatus == "No winner yet, keep playing!")
                         {
                             // Ask each player in turn for their choice and update the game board array
                             Console.WriteLine($"Player {playerUp}, Make your selection");
+
+                            try
+                            {
+                                char selection = Console.ReadLine()[0];
+                                playerChoice = int.Parse(selection);
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Invalid input. Please enter 1, 2, 3, or 4.");
+                                continue;
+                            }
+
+                            if (game_board[(playerChoice - 1)] != 'X' && game_board[(playerChoice - 1)] != 'O')
+                            {
+                                game_board[(playerChoice - 1)] = playerUp;
+                               
+                            }
+                            else
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("That spot is already taken.");
+                                continue;
+                            }
                             
-                            playerChoice = Char.Parse(Console.ReadLine());
-                            game_board[playerChoice - 1] = playerUp;
-                            
+
                             // Print the board by calling the method in the supporting class
-                            ttt.printBoard(game_board);
+                            Console.WriteLine();
+                            ttt.PrintBoard(game_board);
                             // Check for a winner by calling the method in the supporting class, and notify the players
                             // when a win has occurred and which player won the game
-                            gameStatus = ttt.isWinner(game_board);
+                            gameStatus = ttt.IsWinner(game_board);
                             Console.WriteLine(gameStatus);
                             
                             if (playerUp == 'X')
@@ -62,16 +84,20 @@ namespace  Mission04_TicTacToe
                             {
                                 playerUp = 'X';
                             };
-                        } 
+                        }
+
+                        break;
 
                     case "2":
                         Console.WriteLine("Goodbye!");
-                        break;
+                        return;
 
                     default:
-                        Console.WriteLine("Invalid input. Please enter 1, 2, 3, or 4.");
-
+                        Console.WriteLine("Invalid input. Please enter 1 or 2.");
+                        break;
                 }
+
+                
 
             }
         }
