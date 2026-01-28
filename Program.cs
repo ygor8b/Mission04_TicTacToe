@@ -47,7 +47,7 @@ namespace  Mission04_TicTacToe
 
                             try
                             {
-                                char selection = Console.ReadLine()[0];
+                                string selection = Console.ReadLine();
                                 playerChoice = int.Parse(selection);
                             }
                             catch
@@ -56,18 +56,26 @@ namespace  Mission04_TicTacToe
                                 continue;
                             }
 
-                            if (game_board[(playerChoice - 1)] != 'X' && game_board[(playerChoice - 1)] != 'O')
+                            try
                             {
-                                game_board[(playerChoice - 1)] = playerUp;
-                               
+                                if (game_board[(playerChoice - 1)] != 'X' && game_board[(playerChoice - 1)] != 'O')
+                                {
+                                    game_board[(playerChoice - 1)] = playerUp;
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("That spot is already taken.");
+                                    continue;
+                                }
                             }
-                            else
+                            catch
                             {
-                                Console.WriteLine();
-                                Console.WriteLine("That spot is already taken.");
+                                Console.WriteLine("Invalid input. Please enter 1, 2, 3, or 4.");
                                 continue;
                             }
-                            
+
 
                             // Print the board by calling the method in the supporting class
                             Console.WriteLine();
