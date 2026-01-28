@@ -52,7 +52,7 @@ namespace  Mission04_TicTacToe
                             }
                             catch
                             {
-                                Console.WriteLine("Invalid input. Please enter 1, 2, 3, or 4.");
+                                Console.WriteLine("Invalid input. Please enter 1-9.");
                                 continue;
                             }
 
@@ -72,7 +72,7 @@ namespace  Mission04_TicTacToe
                             }
                             catch
                             {
-                                Console.WriteLine("Invalid input. Please enter 1, 2, 3, or 4.");
+                                Console.WriteLine("Invalid input. Please enter 1-9.");
                                 continue;
                             }
 
